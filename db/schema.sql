@@ -1,1 +1,3 @@
-todo fill with code
+DROP DATABASE IF EXISTS santas_db;
+
+CREATE DATABASE santas_db;

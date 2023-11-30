@@ -31,6 +31,7 @@ User.init(
         },
       },
     },
+
     {
       sequelize,
       timestamps: false,

@@ -11,7 +11,7 @@ Action.init(
         primaryKey: true,
         autoIncrement: true,
       },
-      event: { 
+      event: {
         type: DataTypes.STRING,
         allowNull: false,
       },

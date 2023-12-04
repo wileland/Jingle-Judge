@@ -1,6 +1,6 @@
 const express = require("express");
 const session = require("express-session");
-const exphbs = require("express-handlebars"); // Require express-handlebars
+const exphbs = require("express-handlebars").create({ defaultLayout: "main" }); // Update this line
 const routes = require("./controllers");
 const sequelize = require("./config/connection");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
@@ -24,7 +24,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Configure Handlebars as the view engine
-app.engine("handlebars", exphbs({ defaultLayout: "main" })); // Specify the default layout
+app.engine("handlebars", exphbs.engine); // Update this line
 app.set("view engine", "handlebars"); // Set Handlebars as the view engine
 
 app.use(routes);

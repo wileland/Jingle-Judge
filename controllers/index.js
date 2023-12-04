@@ -1,14 +1,9 @@
 const router = require("express").Router();
 
-// Import all other routers
-const apiRoutes = require("./api");
-const viewRoutes = require("./viewRoutes"); // If you have routes for server-rendered views
-const userRoutes = require("./api/userRoutes"); // Assuming you have user routes inside the api folder
+const viewRoutes = require("./viewRoutes"); // Import view routes
+const apiRoutes = require("./api/userRoutes"); // Import user API routes
 
-// Establish the base routes
-router.use("/api", apiRoutes);
-router.use("/", viewRoutes);
-router.use("/api/users", userRoutes);
+router.use("/", viewRoutes); // Use view routes
+router.use("/api/users", apiRoutes); // Use user API routes
 
-// Export the base router
 module.exports = router;

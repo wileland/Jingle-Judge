@@ -1,0 +1,30 @@
+
+#countdown_container.countdown-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-right: 20px;
+    margin-top: 20px;
+    border: 2px solid BLACK; /* Border color (adjust as needed) */
+    padding: 10px; /* Add padding to give space inside the border */
+    background-image: url('../images/VERTICAL.jpg'); /* Replace 'your_background_image.jpg' with the path to your image */
+    background-size: cover; /* Ensure the background image covers the entire container */
+    color: BLACK; /* Adjust text color for better visibility */
+    height: 500px;
+  }
+  
+  #countdown_container .countdown-globe {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+    padding-top: 5%;
+  }
+  
+  #countdown_container .number {
+    font-size: 2em;
+  }
+  
+  #countdown_container .title {
+    font-size: 1.2em;
+  }

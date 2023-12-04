@@ -31,6 +31,7 @@ router.post("/register", redirectIfAuthenticated, async (req, res) => {
 
     res.status(201).json(newUser);
   } catch (error) {
+    console.error("Error during user registration:", error);
     res.status(500).json({ error: "Failed to register user" });
   }
 });
@@ -50,16 +51,25 @@ router.post("/login", redirectIfAuthenticated, async (req, res) => {
       res.status(401).json({ error: "Incorrect email or password" });
     }
   } catch (error) {
+    console.error("Error during user login:", error);
     res.status(500).json({ error: "Failed to login" });
   }
 });
 
 // Logout user
 router.post("/logout", (req, res) => {
-  req.session.destroy((err) => {
-    if (err) throw err;
-    res.redirect("/login");
-  });
+  try {
+    req.session.destroy((err) => {
+      if (err) {
+        console.error("Error during user logout:", err);
+        return res.status(500).json({ error: "Failed to logout" });
+      }
+      res.redirect("/login");
+    });
+  } catch (error) {
+    console.error("Error during user logout:", error);
+    res.status(500).json({ error: "Failed to logout" });
+  }
 });
 
 module.exports = router;

@@ -58,7 +58,7 @@ Santa's DB: Jingle Judge
 │   ├── home.handlebars
 │   ├── about.handlebars
 │   ├── ...
-│   └── 404.handlebars
+│   
 ├── .env
 ├── .gitignore
 ├── package.json

@@ -1,30 +1,24 @@
 const express = require("express");
-const path = require("path");
 const router = express.Router();
 
-// Example root route that renders a home page
+// Root route that renders the home page
 router.get("/", (req, res) => {
-  // If you're using a view engine like Handlebars, EJS, Pug, etc.
   res.render("home", { title: "Welcome to Krampus vs Santa!" });
-
-  // If you're serving a static HTML file and not using a view engine:
-  // res.sendFile(path.join(__dirname, '../public/home.html'));
 });
 
-// Example route for about page
+// Route for the about page
 router.get("/about", (req, res) => {
   res.render("about", { title: "About Us" });
-
-  // For serving a static HTML file:
-  // res.sendFile(path.join(__dirname, '../public/about.html'));
 });
 
-// Example route for contact page
+// Route for the contact page
 router.get("/contact", (req, res) => {
   res.render("contact", { title: "Contact Us" });
+});
 
-  // For serving a static HTML file:
-  // res.sendFile(path.join(__dirname, '../public/contact.html'));
+// 404 Error handling for unmatched routes
+router.use((req, res) => {
+  res.status(404).render("404", { title: "404: Page Not Found" });
 });
 
 module.exports = router;

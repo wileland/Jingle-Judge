@@ -10,7 +10,7 @@
     background-image: url('../images/VERTICAL.jpg'); /* Replace 'your_background_image.jpg' with the path to your image */
     background-size: cover; /* Ensure the background image covers the entire container */
     color: BLACK; /* Adjust text color for better visibility */
-    height: 500px;
+    height: 100%;
   }
   
   #countdown_container .countdown-globe {
@@ -28,3 +28,9 @@
   #countdown_container .title {
     font-size: 1.2em;
   }
+
+  .card {
+    padding: 5%;
+    margin: 5%;
+  }
+

@@ -1,4 +1,4 @@
-Santa's DB: Jingle Judge
+Jingle Judge: Naughty or Nice Edition
 Table of Contents
 Introduction
 Technologies Used
@@ -10,10 +10,10 @@ Testing
 Troubleshooting
 Contributing
 License
-Introduction
-Santa's DB: Jingle Judge is a full-stack web application designed to manage Santa's list of who's naughty and nice. This application allows for the creation and management of user accounts, categorization of actions, and assignment of actions to children. It's built using the MVC paradigm, featuring a user authentication system and a database connection for data persistence.
+1. Introduction
+Jingle Judge: Naughty or Nice Edition is a full-stack web application designed for managing Santa's list of who's naughty and nice. It allows users to create and manage accounts, categorize actions, and assign actions to children. Built using the MVC paradigm, it includes user authentication and a database connection for data persistence.
 
-Technologies Used
+2. Technologies Used
 Node.js
 Express.js
 Sequelize (MySQL)
@@ -21,19 +21,16 @@ Handlebars.js
 bcrypt
 dotenv
 Other dependencies as listed in package.json
-Installation
+3. Installation
 To set up the project environment, run the following commands in your terminal:
 
 bash
 Copy code
-npm install express express-session express-handlebars sequelize connect-session-sequelize mysql2 dotenv
-npm install bcrypt
-File Structure
-Outline the directory structure of your project, possibly in a tree format. For example:
-
+npm install express express-session express-handlebars sequelize connect-session-sequelize mysql2 dotenv bcrypt
+4. File Structure
 arduino
 Copy code
-Santa's DB: Jingle Judge
+Jingle Judge: Naughty or Nice Edition
 ├── config
 │   └── connection.js
 ├── controllers
@@ -45,9 +42,7 @@ Santa's DB: Jingle Judge
 │   ├── User.js
 │   ├── Child.js
 │   ├── Action.js
-│   ├── ...
 │   └── index.js
-├── node_modules
 ├── public
 │   ├── css
 │   ├── js
@@ -57,28 +52,29 @@ Santa's DB: Jingle Judge
 │   │   └── main.handlebars
 │   ├── home.handlebars
 │   ├── about.handlebars
-│   ├── ...
-│   
+│   └── ...
 ├── .env
 ├── .gitignore
 ├── package.json
 ├── package-lock.json
 ├── README.md
 └── server.js
-Configuration
-Describe how to set up the .env file and any other configuration required.
+5. Configuration
+Configure the .env file with your database credentials and session secret.
+Ensure the Sequelize setup in config/connection.js matches your database.
+6. Usage
+Start the server using node server.js or npm start.
+Access the application at http://localhost:3001 or the configured port.
+Register, log in, and navigate through the application to manage user data and children's actions.
+7. Testing
+Utilize Insomnia or Postman to test API routes.
+Confirm that routes respond correctly with appropriate status codes.
+Test user authentication functions for security.
+8. Troubleshooting
+For database issues, check your credentials and connection string in .env.
+For session problems, verify the session secret and store configuration.
+Debug JavaScript in public/js for frontend issues.
+9. blablablalablablalablablalablablalablablalablablalablablalablablalablablalablablalablabla
+10. License
+This project is under the MIT License.
 
-Usage
-Explain how to use the application, including starting the server, accessing the application, and any user instructions.
-
-Testing
-Detail how to run tests, including any Insomnia/Postman configurations if applicable.
-
-Troubleshooting
-Offer solutions to common issues or problems one might encounter while setting up or using the application.
-
-Contributing
-Provide guidelines on how others can contribute to the project. You may include steps for fork, clone, feature branching, and pull requests.
-
-License
-MIT

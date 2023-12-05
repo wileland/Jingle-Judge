@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PARENT SAMPLE</title>
+    <title>Jingle Judge - Parent Dashboard</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css" />
-    <link rel="stylesheet" href="../public/css/.css">
-
+    <link rel="stylesheet" href="/css/main.css"> <!-- Corrected CSS path -->
 </head>
-
 <body>
     <header class="hero is-primary is-bold">
         <div class="hero-body">
@@ -26,41 +23,33 @@
                 {{else}}
                 <a href="/login" class="navbar-item">Login</a>
                 {{/if}}
-                <a href="Dashboard handlebars" class="navbar-item">Dashboard</a>
+                <a href="/dashboard" class="navbar-item" id="dashboard-link">Dashboard</a> <!-- Edited href and added ID for Dashboard -->
             </div>
         </div>
     </nav>
     <main class="section">
         <div class="container">
             <div class="columns">
-                <!-- Left Column -->
+                <!-- Left Column for Adding Child -->
                 <div class="column is-one-fifth">
                     <div class="box">
                         <h2 class="title is-5">Add a Child</h2>
-                        <button class="button is-primary">Add</button>
+                        <button id="add-child-btn" class="button is-primary">Add</button> <!-- Button for adding child -->
                     </div>
                 </div>
 
-                <!-- Middle Column -->
+                <!-- Middle Column for Displaying Children -->
                 <div class="column">
-                    <div class="card">
+                    {{#each children}}
+                    <div class="card" id="child-{{this.id}}"> <!-- Dynamic rendering of children -->
                         <div class="card-content">
-                            <p class="title">Child 1</p>
+                            <p class="title">{{this.name}}</p>
                         </div>
                     </div>
-                    <div class="card">
-                        <div class="card-content">
-                            <p class="title">Child 2</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-content">
-                            <p class="title">Child 3</p>
-                        </div>
-                    </div>
+                    {{/each}}
                 </div>
 
-                <!-- Christmas Countdown -->
+                <!-- Right Column for Christmas Countdown -->
                 <div class="column is-one-fifth">
                     <div id="countdown_container" class="countdown-container">
                         <div class="countdown-globe days">
@@ -80,12 +69,11 @@
                             <div class="title">Seconds</div>
                         </div>
                     </div>
-                    <script src="../public/js/countdown.js"></script>
                 </div>
             </div>
         </div>
     </main>
-    <script src="../public/js/login.js"></script>
+    <script src="/js/countdown.js"></script> <!-- Countdown script -->
+    <script src="/js/logout.js"></script> <!-- Logout script -->
 </body>
-
 </html>

@@ -1,7 +1,7 @@
 const seedUser = require('./user-seed');
 const seedCategory = require('./category-seed');
 const seedAction = require('./action-seed');
-
+const seedChild = require('./child-seeds')
 const sequelize = require('../config/connection');
 
 const seedAll = async() => {
@@ -9,6 +9,7 @@ const seedAll = async() => {
     await seedUser();
     await seedCategory();
     await seedAction();
+    await seedChild();
     process.exit(0);
 };
 

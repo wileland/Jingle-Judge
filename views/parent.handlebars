@@ -8,19 +8,7 @@
 
                 <!-- Middle Column -->
                 <div class="column">
-                    <div class="card">
-                        <div class="card-content">
-                            <p class="title">Child 1</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-content">
-                            <p class="title">Child 2</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-content">
-                            <p class="title">Child 3</p>
-                        </div>
-                    </div>
+                    {{#each children}}
+                    {{> parent-details}}
+                    {{/each}}
                 </div>

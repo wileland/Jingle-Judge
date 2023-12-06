@@ -26,7 +26,8 @@ Child.init(
       status: {
         type: DataTypes.INTEGER,
         allowNull: false,
-      }
+      },
+      
     },
     {
       sequelize,

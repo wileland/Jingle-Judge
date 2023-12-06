@@ -1,36 +1,75 @@
+.container {
+  max-width: 800px;
+  /* margin: auto; */
+}
 
-#countdown_container.countdown-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    margin-right: 20px;
-    margin-top: 20px;
-    border: 2px solid BLACK; /* Border color (adjust as needed) */
-    padding: 10px; /* Add padding to give space inside the border */
-    background-image: url('../images/VERTICAL.jpg'); /* Replace 'your_background_image.jpg' with the path to your image */
-    background-size: cover; /* Ensure the background image covers the entire container */
-    color: BLACK; /* Adjust text color for better visibility */
-    height: 100%;
-  }
-  
-  #countdown_container .countdown-globe {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 10px;
-    padding-top: 5%;
-  }
-  
-  #countdown_container .number {
-    font-size: 2em;
-  }
-  
-  #countdown_container .title {
-    font-size: 1.2em;
-  }
+.columns {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
 
-  .card {
-    padding: 5%;
-    margin: 5%;
-  }
+.column {
+  margin: 10px;
+}
 
+.box {
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.card {
+  margin: 10px;
+  width: 100%;
+  max-width: 200px;
+}
+
+.countdown-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  border: 2px solid black;
+  padding: 10px;
+  background-image: url('../images/VERTICAL.jpg');
+  background-size: cover;
+  color: black;
+  height: 100vh;
+}
+
+.countdown-container .countdown-globe {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+  padding-top: 5%;
+}
+
+.countdown-container .number {
+  font-size: 2em;
+}
+
+.countdown-container .title {
+  font-size: 1.2em;
+}
+
+.title.is-5 {
+  margin-bottom: 10px;
+}
+
+.child-card {
+  display: flex;
+  /* border: solid black; */
+  flex-direction: column;
+  width: 100%;
+}
+
+.card-container {
+
+  width: 40vw;
+  height: 50vw;
+}
+
+#meter-container {
+  width: 10vw;
+}

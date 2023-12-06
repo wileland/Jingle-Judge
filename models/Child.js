@@ -23,6 +23,10 @@ Child.init(
             key: 'id'
         },
       },
+      name: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
       status: {
         type: DataTypes.INTEGER,
         allowNull: false,

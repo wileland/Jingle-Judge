@@ -3,6 +3,11 @@ const bcrypt = require("bcrypt");
 const { User } = require("../../models");
 const router = express.Router();
 
+router.get("/login", (req, res) => {
+  // Render the login page using Handlebars
+  
+  res.render("login"); // Assuming 'login.handlebars' exists in your 'views' folder
+});
 // Middleware to check if the user is logged in
 const redirectIfAuthenticated = (req, res, next) => {
   if (req.session.userId) {

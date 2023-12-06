@@ -1,9 +1,12 @@
-const router = require("express").Router();
+const express = require("express");
+const router = express.Router();
 
-const viewRoutes = require("./viewRoutes"); // Import view routes
-const apiRoutes = require("./api/userRoutes"); // Import user API routes
+// Import routes
+const viewRoutes = require("./viewRoutes");
+const userApiRoutes = require("./api/userRoutes");
 
-router.use("/", viewRoutes); // Use view routes
-router.use("/api/users", apiRoutes); // Use user API routes
+// Register routes
+router.use("/", viewRoutes);
+router.use("/api/users", userApiRoutes);
 
 module.exports = router;

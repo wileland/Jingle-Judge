@@ -9,7 +9,7 @@ router.get("/", (req, res) => {
   res.render("home", );
 });
 
-router.get('/child/:id', withAuth, async (req, res) => {
+router.get('api/parent/child/:id', withAuth, async (req, res) => {
   try {
     const dbChildData = await Child.findByPk(req.params.id, {
       include: [

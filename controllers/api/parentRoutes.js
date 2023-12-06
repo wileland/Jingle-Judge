@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Child, Action, Category} = require('../../models');
 
-
+//------------------------------------------------------------ this route works no touchy
 router.get('/', async (req, res) => {
     try {
    const dbChildData = await Child.findAll({
@@ -27,29 +27,35 @@ router.get('/', async (req, res) => {
         res.status(500).json(err);
     }
 });
+// -------------------------------------------------------------------- 
 
-router.get('/child/:id', (req, res) => {
-    Child.findOne({
+router.get('/child/:id', async (req, res) => {
+    try {
+        const dbChildData = Child.findByPk({
             where: {
                 id: req.params.id
             },
             attributes: ['id', 'user_id', 'status'],
             include: [{
                 model: Action,
-                attributes: ['event']
+                attributes: ['event', 'value', 'category']
             },
             {
                 model: Category,
-                attributes: ['name']
+                attributes: ['name', 'value']
             }
-        ]
-        })
-            .then(dbChildData => res.json(dbChildData))
-            .catch(err => {
-                console.log(err);
-                res.status(500).json(err)
-            })
-    });  
+            ]
+        });
+    } catch(err) {
+        console.log(err)
+        res.status(500).json(err)
+    }
+            // .then(dbChildData => res.json(dbChildData))
+            // .catch(err => {
+            //     console.log(err);
+            //     res.status(500).json(err)
+            // })
+});  
 
 router.post('/', (req, res) => {
     

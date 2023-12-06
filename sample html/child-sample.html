@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Your head content remains unchanged -->
+</head>
+
+<body>
+    <div class="columns">
+        <!-- Left Column for Meter -->
+        <div class="column is-one-fifth">
+            <div id="meter-container">
+                <meter></meter>
+            </div>
+        </div>
+
+        <!-- Main Column for Handlebars Partial -->
+        <div class="column">
+            <header class="hero is-primary is-bold">
+                <!-- Your header content goes here -->
+            </header>
+
+            <nav class="navbar is-dark">
+                <!-- Your navigation content goes here -->
+            </nav>
+
+            <main class="section">
+                <div class="container">
+                    <div class="columns">
+                        <!-- Your body content goes here -->
+                        {{{body}}}
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Right Column for Christmas Countdown -->
+    <aside>
+        <div class="column is-one-fifth">
+            <div id="countdown_container" class="countdown-container">
+                <!-- Your countdown content goes here -->
+            </div>
+        </div>
+    </aside>
+
+    <script src="/js/yourjavascriptfilename.js"></script>
+</body>
+
+</html>

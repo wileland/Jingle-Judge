@@ -1,14 +1,15 @@
 const express = require("express");
 const router = express.Router();
 const { Child } = require("../models");
+const withAuth = require('../utils/auth');
 
 
 // Root route that renders the home page
 router.get("/", (req, res) => {
-  res.render("home", { title: "Welcome to Krampus vs Santa!" });
+  res.render("home", );
 });
 
-router.get('/child/:id', async (req, res) => {
+router.get('/child/:id', withAuth, async (req, res) => {
   try {
     const dbChildData = await Child.findByPk(req.params.id, {
       include: [
@@ -30,5 +31,13 @@ router.get('/child/:id', async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+// router.get('/api/parent', (req, res) => {
+//   try {
+    
+//   } catch(err) {
+
+//   }
+// })
 
 module.exports = router;

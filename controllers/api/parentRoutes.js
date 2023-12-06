@@ -1,25 +1,31 @@
 const router = require('express').Router();
 const { Child, Action, Category} = require('../../models');
-const { findByPk } = require('../../models/User');
 
-router.get('/', (req, res) => {
-    Child.findAll({
-        attributes: ['id', 'user_id', 'status'],
+
+router.get('/', async (req, res) => {
+    try {
+   const dbChildData = await Child.findAll({
+        attributes: ['name', 'id', 'user_id', 'status'],
         include: [{
             model: Action,
             attributes: ['event']
         },
-        {
-            model: Category,
-            attributes: ['name']
-        }
-    ]
+        ],
     })
-        .then(dbChildData => res.json(dbChildData))
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err)
-        });
+    console.log(dbChildData);
+    const children = dbChildData.map((child) => 
+        child.get({plain:true})
+    );
+    console.log("children variable:", children);
+
+    res.render('parent', {
+        children,
+        loggedIn: req.session.loggedIn,
+    });
+    } catch(err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
 });
 
 router.get('/child/:id', (req, res) => {
@@ -45,19 +51,19 @@ router.get('/child/:id', (req, res) => {
             })
     });  
 
-    router.post('/', (req, res) => {
-        
-        Child.create({
-            name: req.body.name
-        })
+router.post('/', (req, res) => {
+    
+    Child.create({
+        name: req.body.name
+    })
 
-        .then(dbChildData => {
-            req.session.user_id = dbChildData.id;
-            req.session.name = dbChildData.name;
+    .then(dbChildData => {
+        req.session.user_id = dbChildData.id;
+        req.session.name = dbChildData.name;
 
-            res.json(dbChildData);
-        });
+        res.json(dbChildData);
     });
+});
 
 
-        module.exports = router;
+    module.exports = router;

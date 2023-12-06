@@ -11,10 +11,6 @@ Child.init(
         primaryKey: true,
         autoIncrement: true,
       },
-      name: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
       user_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -30,7 +26,8 @@ Child.init(
       status: {
         type: DataTypes.INTEGER,
         allowNull: false,
-      }
+      },
+      
     },
     {
       sequelize,

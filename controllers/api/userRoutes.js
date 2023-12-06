@@ -2,17 +2,11 @@ const express = require("express");
 const bcrypt = require("bcrypt");
 const { User } = require("../../models");
 const router = express.Router();
+const withAuth = require('../../utils/auth');
 
-// Middleware to check if the user is logged in
-const redirectIfAuthenticated = (req, res, next) => {
-  if (req.session.userId) {
-    return res.redirect("/"); // Redirect to home if already logged in
-  }
-  next();
-};
 
 // Register a new user
-router.post("/register", redirectIfAuthenticated, async (req, res) => {
+router.post("/register", withAuth, async (req, res) => {
   try {
     const { username, email, password } = req.body;
 
@@ -37,7 +31,7 @@ router.post("/register", redirectIfAuthenticated, async (req, res) => {
 });
 
 // Login user
-router.post("/login", redirectIfAuthenticated, async (req, res) => {
+router.post("/login", withAuth, async (req, res) => {
   try {
     const { email, password } = req.body;
     const user = await User.findOne({ where: { email } });

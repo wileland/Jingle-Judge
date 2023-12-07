@@ -140,7 +140,7 @@ text-align: center;
 }
 
 #meter-container {
-  width: 10vw;
+  width: 35vw;
 }
 
 .card-content {
@@ -148,4 +148,12 @@ text-align: center;
 }
 #add-btn {
   align-items: center;
+}
+
+.child-card {
+  border: solid white;
+}
+
+meter{
+  width: 100%;
 }

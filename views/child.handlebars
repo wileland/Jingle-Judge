@@ -1,17 +1,17 @@
 
                 
-                <div class="column is-one-fifth">
-                    <div class="box" id="meter-container">
+                <div class="login-column is-one-fifth">
+                    <div id="meter-container">
                         <label for="child-status">Child Status</label>
-                        <meter id="child-status" value="2" min="0" max="10"></meter>
+                        <meter id="child-status" value="78" min="0" max="100"></meter>
                     </div>
                 </div>
 
                 <!-- Main Column for Handlebars Partial -->
-                <div class="column is-one-fifth">
+                <div class="login-column is-one-fifth">
 
-                    <div class="header">Large Header</div>
-                    <div class="box card-container">
+                    <div class="header">Your child's recent behavior report:</div>
+                    <div class="card-container">
                         <!-- Card 1 -->
                     {{#each actions}}
                     {{> child-details}}

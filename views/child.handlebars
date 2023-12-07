@@ -1,4 +1,4 @@
-                 <link rel="stylesheet" href="/css/child.css">
+
                 
                 <div class="column is-one-fifth">
                     <div class="box" id="meter-container">
@@ -13,17 +13,9 @@
                     <div class="header">Large Header</div>
                     <div class="box card-container">
                         <!-- Card 1 -->
-                        <div class="child-card card">
-                            <div class="card-content">
-                                <h5 class="card-title">Card 1</h5>
-                                <p class="card-text">Card content goes here.</p>
-                            </div>
-                        </div>
-                        <div class="child-card card">
-                            <div class="card-content">
-                                <h5 class="card-title">Card 2</h5>
-                                <p class="card-text">Card content goes here.</p>
-                            </div>
-                        </div>
+                    {{#each actions}}
+                    {{> child-details}}
+                    {{/each}}
+
                     </div>
                 </div>

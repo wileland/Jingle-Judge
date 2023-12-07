@@ -1,8 +1,9 @@
 const router = require('express').Router();
 const { Child, Action, Category} = require('../../models');
+const withAuth = require('../../utils/auth');
 
 //------------------------------------------------------------ this route works no touchy
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
     try {
    const dbChildData = await Child.findAll({
         attributes: ['name', 'id', 'user_id', 'status'],
@@ -16,7 +17,7 @@ router.get('/', async (req, res) => {
     const children = dbChildData.map((child) => 
         child.get({plain:true})
     );
-    console.log("children variable:", children);
+    console.log("get route for api/parent/");
 
     res.render('parent', {
         children,
@@ -29,35 +30,35 @@ router.get('/', async (req, res) => {
 });
 // -------------------------------------------------------------------- 
 
-router.get('/child/:id', async (req, res) => {
+router.get('/child/:id', withAuth, async (req, res) => {
     try {
-        const dbChildData = Child.findByPk({
-            where: {
-                id: req.params.id
-            },
-            attributes: ['id', 'user_id', 'status'],
-            include: [{
-                model: Action,
-                attributes: ['event', 'value', 'category']
-            },
-            {
-                model: Category,
-                attributes: ['name', 'value']
-            }
-            ]
-        });
-    } catch(err) {
-        console.log(err)
-        res.status(500).json(err)
+      const dbChildData = await Child.findByPk(req.params.id, {
+        include: [
+          {
+            model: Action,
+            attributes: [
+              'id',
+              'event',
+              'category_id',
+              'value',
+            ],
+          },
+        ],
+      });
+      const actions = dbChildData.get({plain:true});
+      console.log(actions)
+      res.render('child', 
+      {
+        actions, 
+        loggedIn: req.session.loggedIn
+      });
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
     }
-            // .then(dbChildData => res.json(dbChildData))
-            // .catch(err => {
-            //     console.log(err);
-            //     res.status(500).json(err)
-            // })
-});  
+  });
 
-router.post('/', (req, res) => {
+router.post('/', withAuth, (req, res) => {
     
     Child.create({
         name: req.body.name

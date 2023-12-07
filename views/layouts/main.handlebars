@@ -21,13 +21,15 @@
     <nav class="navbar is-dark">
         <div class="navbar-menu">
             <div class="navbar-start">
-                <a href="/" class="navbar-item">Home</a>
+                {{!-- <a href="/" class="navbar-item">Home</a> --}}
                 {{#if loggedIn}}
-                <button id="logout" class="navbar-item button is-primary">Logout</button>
+                <a href = "/" class="navbar-item">Logout</a>
+                <a href="/api/parent" class="navbar-item">Dashboard</a>
+                {{!-- <button id="logout" class="navbar-item button is-primary">Logout</button> --}}
                 {{else}}
-                <a href="/login" class="navbar-item">Login</a>
+                <a href="/" class="navbar-item">Login</a>
                 {{/if}}
-                <a href="Dashboard handlebars" class="navbar-item">Dashboard</a>
+
             </div>
         </div>
     </nav>

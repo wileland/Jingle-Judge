@@ -64,18 +64,14 @@ router.post("/login", async (req, res) => {
 });
 
 // Logout user
-router.post("/logout", (req, res) => {
-  try {
-    req.session.destroy((err) => {
-      if (err) {
-        console.error("Error during user logout:", err);
-        return res.status(500).json({ error: "Failed to logout" });
-      }
-      res.redirect("/login");
+router.post('/logout', (req, res) => {
+  // When the user logs out, destroy the session
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      res.status(204).end();
     });
-  } catch (error) {
-    console.error("Error during user logout:", error);
-    res.status(500).json({ error: "Failed to logout" });
+  } else {
+    res.status(404).end();
   }
 });
 

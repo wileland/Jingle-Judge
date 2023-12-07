@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
     const children = dbChildData.map((child) => 
         child.get({plain:true})
     );
-    console.log("children variable:", children);
+    console.log("get route for api/parent/");
 
     res.render('parent', {
         children,
@@ -45,8 +45,8 @@ router.get('/child/:id', withAuth, async (req, res) => {
           },
         ],
       });
-      const child = dbChildData.get({plain:true});
-      res.render('child', {child, loggedIn: req.session.loggedIn});
+      const actions = dbChildData.get({plain:true});
+      res.render('child', {actions, loggedIn: req.session.loggedIn});
     } catch (err) {
       console.log(err);
       res.status(500).json(err);

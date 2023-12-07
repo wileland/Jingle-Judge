@@ -13,6 +13,12 @@ const childTable = [{
         status: -6,
         user_id: 1
     },
+    {
+        id: 3,
+        name: 'Anthony',
+        status: 42,
+        user_id: 1
+    },
 ];
 
 const seedChild = () => Child.bulkCreate(childTable);

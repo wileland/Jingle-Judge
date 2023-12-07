@@ -2,14 +2,14 @@ body {
   background-image: url('../images/santa.png');
   background-repeat: no-repeat;
   background-position:top;
-  background-size: 1800px;
-background-position-y: 250px;
+  background-size: cover;
 
 
 }
 .heroBody{
-font-size: 100px;
+font-size: 80px;
 }
+
 .container {
   max-width: 800px;
   /* margin: auto; */
@@ -41,7 +41,7 @@ font-size: 100px;
   display: flex;
   flex-direction: column;
   align-items: right;
-  margin-top: 20px;
+  margin-top: 5px;
   /* border: 2px solid black; */
   padding: 10px;
   /* background-image: url('../images/snowing-in-globe-no-subject_orig.gif'); */
@@ -49,22 +49,29 @@ font-size: 100px;
   color: black;
   height: 100vh;
 }
+
 .days-container h1{
-writing-mode: vertical-lr;
-font-size: 100px;
-color: red;
+/* writing-mode: vertical-lr; */
+font-size: 50px;
+color: white;
 font-family: 'Franklin Gothic Medium';
-margin-top: -1400px;
-margin-left: -40px;
+position: absolute;
+width: 30%;
+top: 35%;
+text-align: center;
 }
+
 .judged-container h1{
-  writing-mode: vertical-lr;
-  font-size: 100px;
-  color: blue;
+  /* writing-mode: vertical-lr; */
+  font-size: 50px;
+  color: white;
   font-family: 'Franklin Gothic Medium';
-  margin-top: -1430px;
-  margin-left: 1280px;
+  position: absolute;
+  top: 90%;
+  width: 30%;
+  align-items: center;
   }
+
 .countdown-container .countdown-globe {
   display: flex;
   flex-direction: column;
@@ -77,13 +84,13 @@ margin-left: -40px;
 
 .countdown-container .number {
   font-size: 2em;
-  color: blue;
+  color: black;
   
 }
 
 .countdown-container .title {
   font-size: 1.2em;
-  color: red;
+  color: white;
 }
 
 .title.is-5 {

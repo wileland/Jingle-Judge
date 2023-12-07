@@ -6,47 +6,60 @@ const withAuth = require('../../utils/auth');
 
 
 // Register a new user
-router.post("/register", withAuth, async (req, res) => {
+router.post("/", async (req, res) => {
   try {
-    const { username, email, password } = req.body;
 
-    // Hash password
-    const hashedPassword = await bcrypt.hash(password, 10); // 10 is the number of salt rounds
+    const hashedPassword = await bcrypt.hash(req.body.password, 10);
 
-    // Create new user
-    const newUser = await User.create({
-      username,
-      email,
+    const dbUserData = await User.create({
+      username: req.body.username,
+      email: req.body.email,
       password: hashedPassword,
     });
+  
+    req.session.save(() => {
+      req.session.loggedIn = true;
 
-    // Save the user id in the session
-    req.session.userId = newUser.id;
+      res.status(200).json(dbUserData)
+    })
 
-    res.status(201).json(newUser);
-  } catch (error) {
-    console.error("Error during user registration:", error);
-    res.status(500).json({ error: "Failed to register user" });
-  }
-});
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+    }
+  });
 
 // Login user
-router.post("/login", withAuth, async (req, res) => {
+router.post("/login", async (req, res) => {
   try {
-    const { email, password } = req.body;
-    const user = await User.findOne({ where: { email } });
+    const dbUserData = await User.findOne({
+      where: {
+        username: req.body.username,
+      },
+    });
 
-    if (user && (await bcrypt.compare(password, user.password))) {
-      // Passwords match
-      req.session.userId = user.id;
-      res.json({ message: "Logged in successfully" });
+    if (!dbUserData) {
+      res.status(400).json({message: 'incorrect username. Please try again.'});
+      return;
     } else {
       // User not found or password does not match
-      res.status(401).json({ error: "Incorrect email or password" });
+      const validPassword = await dbUserData.checkPassword(req.body.password);
+
+      if (!validPassword) {
+        res.status(400).json({message: 'Incoreect password. Please try again!'})
+        return;
+      }
+      
     }
-  } catch (error) {
-    console.error("Error during user login:", error);
-    res.status(500).json({ error: "Failed to login" });
+
+    req.session.save(() => {
+      req.session.loggedIn = true; 
+
+      res.status(200).json({user: dbUserData, message: 'You are now logged in!'})
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
   }
 });
 

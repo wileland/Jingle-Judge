@@ -40,13 +40,18 @@ router.get('/child/:id', withAuth, async (req, res) => {
               'id',
               'event',
               'category_id',
-              'value'
+              'value',
             ],
           },
         ],
       });
       const actions = dbChildData.get({plain:true});
-      res.render('child', {actions, loggedIn: req.session.loggedIn});
+      console.log(actions)
+      res.render('child', 
+      {
+        actions, 
+        loggedIn: req.session.loggedIn
+      });
     } catch (err) {
       console.log(err);
       res.status(500).json(err);

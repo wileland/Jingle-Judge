@@ -14,8 +14,8 @@
 <body>
     <header class="hero is-primary is-bold">
         <div class="hero-body">
-            <h1 class="title">JINGLE JUDGE</h1>
-            <h2 class="subtitle is-italic">Naughty or Nice Edition</h2>
+            <h1 class="title, has-text-centered is-size-1">JINGLE JUDGE</h1>
+            <h2 class="subtitle is-italic, has-text-centered">Naughty or Nice Edition</h2>
         </div>
     </header>
     <nav class="navbar is-dark">
@@ -40,7 +40,8 @@
     <aside>
         <!-- Christmas Countdown -->
         !-- <div class="column is-one-fifth"> <!-- Adjusted width to 1/5 -->
-            <div id="countdown_container" class="countdown-container"> 
+            <div id="countdown_container" class="countdown-container">
+                    
                 <div class="countdown-globe days">
                     <div class="number">24</div>
                     <div class="title">Days</div>
@@ -57,6 +58,19 @@
                     <div class="number">24</div>
                     <div class="title">Seconds</div>
                 </div> 
+            </div>
+            </div>
+
+            <div class="column is-one-fifth"> <!-- Adjusted width to 1/5 -->
+                <div id="days_container" class="days-container">
+                        <h1>Days Till Christmas</h1> 
+                </div>
+            </div>
+
+            <div class="column is-one-fifth"> <!-- Adjusted width to 1/5 -->
+                <div id="judged_container" class="judged-container">
+                        <h1>You Will Be Judged</h1>
+                </div>
             </div>
             <script src="/js/countdown.js"></script>
         </div>

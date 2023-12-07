@@ -17,7 +17,7 @@ router.get('/', withAuth, async (req, res) => {
     const children = dbChildData.map((child) => 
         child.get({plain:true})
     );
-    console.log("children after plain true:" , children);
+    console.log("children after plain true:", children);
 
     res.render('parent', {
         children,

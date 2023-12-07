@@ -6,7 +6,7 @@ const withAuth = require('../utils/auth');
 
 // Root route that renders the home page
 router.get("/", (req, res) => {
-  res.render("home", );
+  res.render("login", );
 });
 
 router.get('api/parent/child/:id', withAuth, async (req, res) => {

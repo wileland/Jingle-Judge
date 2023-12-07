@@ -17,7 +17,7 @@ router.get('/', withAuth, async (req, res) => {
     const children = dbChildData.map((child) => 
         child.get({plain:true})
     );
-    console.log("get route for api/parent/");
+    console.log("children after plain true:" , children);
 
     res.render('parent', {
         children,

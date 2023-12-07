@@ -1,4 +1,4 @@
-Jingle Judge: Naughty or Nice Edition
+##Jingle Judge: Naughty or Nice Edition
 Table of Contents
 Introduction
 Technologies Used

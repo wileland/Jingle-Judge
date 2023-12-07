@@ -5,8 +5,8 @@ const withAuth = require('../utils/auth');
 
 
 // Root route that renders the home page
-router.get("/", withAuth, (req, res) => {
-  res.render("login", );
+router.get("/login", withAuth, (req, res) => {
+  res.render("login");
 });
 
 

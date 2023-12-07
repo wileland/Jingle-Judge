@@ -9,6 +9,10 @@ router.get("/login", withAuth, (req, res) => {
   res.render("login");
 });
 
+router.get('/', (req, res) => {
+  res.render('login')
+});
+
 
 
 

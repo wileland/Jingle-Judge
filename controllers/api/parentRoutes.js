@@ -3,7 +3,7 @@ const { Child, Action, Category} = require('../../models');
 const withAuth = require('../../utils/auth');
 
 //------------------------------------------------------------ this route works no touchy
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
     try {
    const dbChildData = await Child.findAll({
         attributes: ['name', 'id', 'user_id', 'status'],
@@ -53,7 +53,7 @@ router.get('/child/:id', withAuth, async (req, res) => {
     }
   });
 
-router.post('/', (req, res) => {
+router.post('/', withAuth, (req, res) => {
     
     Child.create({
         name: req.body.name

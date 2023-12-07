@@ -12,18 +12,12 @@
 </head>
 
 <body>
-    <header class="hero is-primary is-bold">
-        <div class="hero-body">
-            <h1 class="title, has-text-centered is-size-1">JINGLE JUDGE</h1>
-            <h2 class="subtitle is-italic, has-text-centered">Naughty or Nice Edition</h2>
-        </div>
-    </header>
     <nav class="navbar is-dark">
         <div class="navbar-menu">
             <div class="navbar-start">
                 {{!-- <a href="/" class="navbar-item">Home</a> --}}
                 {{#if loggedIn}}
-                <a href = "/" class="navbar-item">Logout</a>
+                <a href="/" class="navbar-item">Logout</a>
                 <a href="/api/parent" class="navbar-item">Dashboard</a>
                 {{!-- <button id="logout" class="navbar-item button is-primary">Logout</button> --}}
                 {{else}}
@@ -33,6 +27,13 @@
             </div>
         </div>
     </nav>
+    <header class="hero is-bold">
+        <div class="hero-body">
+            <h1 class="title, has-text-centered is-size-1">JINGLE JUDGE</h1>
+            <h2 class="subtitle is-italic, has-text-centered">Naughty or Nice Edition</h2>
+        </div>
+    </header>
+
     <main class="section">
         <div class="container">
             <div class="columns">
@@ -43,7 +44,13 @@
         <!-- Christmas Countdown -->
         !-- <div class="column is-one-fifth"> <!-- Adjusted width to 1/5 -->
             <div id="countdown_container" class="countdown-container">
-                    
+                
+        <div class="column is-one-fifth"> <!-- Adjusted width to 1/5 -->
+            <div id="days_container" class="days-container">
+                <h1 >Time left: </h1>
+            </div>
+        </div>
+
                 <div class="countdown-globe days">
                     <div class="number">24</div>
                     <div class="title">Days</div>
@@ -51,24 +58,19 @@
                 <div class="countdown-globe hours">
                     <div class="number">24</div>
                     <div class="title">Hours</div>
-                </div> 
+                </div>
                 <div class="countdown-globe minutes">
                     <div class="number">24</div>
                     <div class="title">Minutes</div>
-                </div> 
-                 <div class="countdown-globe seconds">
+                </div>
+                <div class="countdown-globe seconds">
                     <div class="number">24</div>
                     <div class="title">Seconds</div>
-                </div> 
-            </div>
-            </div>
-
-            <div class="column is-one-fifth"> <!-- Adjusted width to 1/5 -->
-                <div id="days_container" class="days-container">
-                        <h1>Days Till Christmas</h1> 
                 </div>
             </div>
-            <script src="/js/countdown.js"></script>
+        </div>
+
+        <script src="/js/countdown.js"></script>
         </div>
     </aside>
 </body>

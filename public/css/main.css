@@ -3,11 +3,24 @@ body {
   background-repeat: no-repeat;
   background-position:top;
   background-size: cover;
+  color: white;
+  height: 100vh;
 
 
 }
+
+.subtitle {
+  color: white;
+}
+
+.text {
+  color: white;
+}
+
 .heroBody{
 font-size: 80px;
+background: rgba(0, 0, 0, 0.3);
+color: white;
 }
 
 .container {
@@ -15,11 +28,23 @@ font-size: 80px;
   /* margin: auto; */
   
 }
-
 .columns {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  color: white;
+}
+
+.login-column {
+  justify-content: center;
+  width: 50%;
+  position: relative;
+  left: 25%;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10%;
+  padding: 20px;
+  margin: 10px;
+  color: white;
 }
 
 .column {
@@ -41,44 +66,54 @@ font-size: 80px;
   display: flex;
   flex-direction: column;
   align-items: right;
-  margin-top: 5px;
+  margin: 20px;
   /* border: 2px solid black; */
   padding: 10px;
   /* background-image: url('../images/snowing-in-globe-no-subject_orig.gif'); */
   /* background-size: 50px; */
   color: black;
   height: 100vh;
+ 
+  position: fixed;
+  top: 10%;
+  width: 20%;
 }
 
 .days-container h1{
-/* writing-mode: vertical-lr; */
-font-size: 50px;
+display: inline;
+;
+font-size: 30px;
 color: white;
+
 font-family: 'Franklin Gothic Medium';
-position: absolute;
-width: 30%;
+position: relative;
+width: 100%;
 top: 35%;
 text-align: center;
 }
 
-.judged-container h1{
+/* .judged-container h1{
   /* writing-mode: vertical-lr; */
-  font-size: 50px;
+  /* font-size: 100px;
   color: white;
   font-family: 'Franklin Gothic Medium';
   position: absolute;
   top: 90%;
   width: 30%;
   align-items: center;
-  }
+} */ 
 
 .countdown-container .countdown-globe {
   display: flex;
   flex-direction: column;
-  align-items: top;
-  margin-bottom: 10px;
-  margin-left: 50%;
+  align-items: flex-start;
+  /* position: fixed; */
+  top: 50%;
+  margin-bottom: 30px;
+  /* margin-left: 50%; */
   padding-top: 5%;
+  opacity: 0.9;
+
 
 }
 
@@ -112,4 +147,14 @@ text-align: center;
 
 #meter-container {
   width: 10vw;
+}
+
+#add-child-cont {
+  border: solid white;
+  position: absolute;
+  left: 50%;
+}
+
+#add-btn {
+
 }

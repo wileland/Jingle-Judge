@@ -26,6 +26,7 @@
 Jingle Judge: Naughty or Nice Edition is a full-stack web application designed for managing Santa's list of who's naughty and nice. It allows users to create and manage accounts, categorize actions, and assign actions to children. Built using the MVC paradigm, it includes user authentication and a database connection for data persistence.
 
 ## Technologies
+```
 Node.js
 Express.js
 Sequelize (MySQL)
@@ -33,6 +34,7 @@ Handlebars.js
 bcrypt
 dotenv
 Other dependencies as listed in package.json
+```
 
 ## Installation
 To set up the project environment, click the following link to be routed to the repository https://github.com/wileland/Jingle-Judge.  copy the ssh from the repository then  run the following commands in your terminal:

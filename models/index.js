@@ -1,7 +1,7 @@
 // import models
 const User = require('./User');
 const Category = require('./Category');
-const Child = require('./Child');
+const Child = require('./child'); //this may cause error
 const Action = require('./Action');
 const Assignment = require('./Assignment');
 

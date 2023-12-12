@@ -7,6 +7,7 @@ Child.init(
     {
       id: {
         type: DataTypes.INTEGER,
+        allowNull: false,
         primaryKey: true,
         autoIncrement: true,
       },
@@ -20,6 +21,7 @@ Child.init(
       },
       name: {
         type: DataTypes.STRING,
+        allowNull: false
       },
       status: {
         type: DataTypes.INTEGER,

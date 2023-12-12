@@ -19,6 +19,11 @@ router.get('/', withAuth, async (req, res) => {
     console.log("children after plain true:" , children);
     // if (dbChildData) {
       res.render('parent', {
+=======
+//     console.log("children after plain true:", children);
+
+//     res.render('parent', {
+
         children,
         loggedIn: req.session.loggedIn
       })

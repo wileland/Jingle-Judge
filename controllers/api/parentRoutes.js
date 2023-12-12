@@ -6,6 +6,7 @@ const withAuth = require('../../utils/auth');
 router.get('/', withAuth, async (req, res) => {
     try {
    const dbChildData = await Child.findAll({
+        attributes: ['name', 'id', 'user_id', 'status'],
         include: [{
             model: Action,
             attributes: ['event']
@@ -16,22 +17,13 @@ router.get('/', withAuth, async (req, res) => {
     const children = dbChildData.map((child) => 
         child.get({plain:true})
     );
-    console.log("children after plain true:" , children);
-    // if (dbChildData) {
-      res.render('parent', {
-=======
-//     console.log("children after plain true:", children);
+    console.log("children after plain true:", children);
 
-//     res.render('parent', {
-
+    res.render('parent', {
         children,
-        loggedIn: req.session.loggedIn
-      })
-    }
-    // res.render('parent', {
-    //     loggedIn: req.session.loggedIn,
-    // });
-       catch(err) {
+        loggedIn: req.session.loggedIn,
+    });
+    } catch(err) {
         console.log(err);
         res.status(500).json(err);
     }

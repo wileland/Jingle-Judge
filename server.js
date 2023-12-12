@@ -31,6 +31,6 @@ app.set("view engine", "handlebars"); // Set Handlebars as the view engine
 
 
 app.use(routes);
-sequelize.sync({ force: false }).then(() => {
+sequelize.sync({ force: true }).then(() => {
   app.listen(PORT, () => console.log(`Now listening on port ${PORT}`));
 });

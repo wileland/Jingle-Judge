@@ -1,14 +1,18 @@
-                <!-- Left Column -->
-                <div class="login-column column is-one-fifth">
-                    <div id="add-child-cont">
-                        <h2 class="text title is-5">Add another Child</h2>
-                        <button class="add-btn button is-primary">Add</button>
-                    </div>
-                </div>
 
-                <!-- Middle Column -->
-                <div class="">
-                    {{#each children}}
-                    {{> parent-details}}
-                    {{/each}}
-                </div>
+
+<form id="add-child-form" class="login-column"> <!-- Ensure we have an ID here for our form -->
+    <div class="field">
+        <label class="text label" for="add-child">Add A child</label>
+        <div class="control">
+            <input class="input" type="text" id="add-child" />
+            <button class="text button is-primary" type="submit">ADD</button>
+        </div>
+    </div>
+</form>
+
+    <!-- Middle Column -->
+    <div class="">
+        {{#each children}}
+        {{> parent-details}}
+        {{/each}}
+    </div>

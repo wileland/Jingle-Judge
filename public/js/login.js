@@ -16,7 +16,7 @@ async function loginFormHandler(event) {
     });
 
     if (response.ok) {
-      document.location.replace("/api/parent");
+      document.location.replace("/parent");
     } else {
       alert(response.statusText);
     }

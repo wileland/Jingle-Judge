@@ -18,7 +18,7 @@ async function signupFormHandler(event) {
     });
     if (response.ok) {
       console.log("success");
-      document.location.replace("/api/parent");
+      document.location.replace("/parent");
     } else {
       alert(response.statusText);
     }

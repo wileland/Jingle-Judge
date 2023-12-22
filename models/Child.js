@@ -18,6 +18,8 @@ Child.init(
             model: 'user',
             key: 'id'
         },
+        defaultValue: 1,
+        unique: true,
       },
       name: {
         type: DataTypes.STRING,
@@ -25,7 +27,8 @@ Child.init(
       },
       status: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: true,
+        defaultValue: 200
       },
       
     },

@@ -23,6 +23,14 @@ app.use(session(sess));
 
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/public/js', express.static('public/js', { 
+  setHeaders: (res, path) => {
+      if (path.endsWith('.js')) {
+          res.setHeader('Content-Type', 'application/javascript');
+      }
+  }
+}));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // Configure Handlebars as the view engine

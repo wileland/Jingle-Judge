@@ -17,6 +17,7 @@ User.init(
         allowNull: false,
         primaryKey: true,
         autoIncrement: true,
+
       },
       username: {
         type: DataTypes.STRING,
@@ -37,6 +38,7 @@ User.init(
           len: [6],
         },
       },
+
     },
 
     {

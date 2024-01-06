@@ -9,6 +9,8 @@ body {
 
 }
 
+
+
 .subtitle {
   color: white;
 }
@@ -156,4 +158,26 @@ text-align: center;
 
 meter{
   width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .columns {
+    flex-direction: column; 
+  }
+
+  .login-column {
+    width: 80%; 
+    left: 10%; 
+  }
+
+
+}
+
+
+@media screen and (min-width: 1200px) {
+  .container {
+    max-width: 1000px;
+  }
+
+
 }

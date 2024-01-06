@@ -4,7 +4,7 @@ let days = document.querySelector(".days .number"),
   minutes = document.querySelector(".minutes .number"),
   seconds = document.querySelector(".seconds .number");
 
-let countDownDate = new Date("Dec 24, 2023 23:59:59").getTime();
+let countDownDate = new Date("Dec 24, 2024 23:59:59").getTime();
 
 let updateCountdown = () => {
   let dateNow = new Date().getTime();
